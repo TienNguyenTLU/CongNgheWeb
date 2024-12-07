@@ -1,5 +1,5 @@
 <h2>Thêm Tin Tức Mới</h2>
-<form method="POST" action="index.php?controller=admin&action=store">
+<form method="POST" action="index.php?controller=news&action=store">
     <label for="title">Title:</label>
     <input type="text" name="title" placeholder="Tiêu đề" required></br>
 

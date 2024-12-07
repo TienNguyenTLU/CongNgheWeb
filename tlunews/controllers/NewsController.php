@@ -17,21 +17,29 @@
         }
     
         public function add() {
-            require_once 'views/admin/news/add.php';
+            if (!isset($_SESSION['user'])) {
+                header('Location: index.php?controller=admin&action=login');
+                exit;
+            }
+            $categories = $this->newsModel->getCategories(); 
+            require_once 'views/admin/news/add.php'; 
         }
+        
     
         public function store() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $title = $_POST['title'];
                 $content = $_POST['content'];
                 $image = $_POST['image'];
-                $category_id = $_POST['category_id']; 
+                $category_id = $_POST['category_id'];
                 $created_at = $_POST['created_at'];
-                $this->newsModel->add($title, $content, $image, $category_id, $created_at);
-                header('Location: index.php?controller=admin&action=index');
+        
+                $this->newsModel->add($title, $content, $image, $category_id, $created_at); 
+                header('Location: index.php?controller=news&action=index'); 
                 exit;
             }
         }
+        
         
     
         public function edit($id) {

@@ -42,6 +42,6 @@
             session_destroy();  
             header('Location: index.php?controller=admin&action=login');  
             exit;
-        }
+        } 
     }
 ?>

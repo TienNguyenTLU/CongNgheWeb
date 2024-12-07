@@ -7,7 +7,8 @@
 </head>
 <body>
     <h2>Admin Dashboard - News List</h2>
-    <a href="index.php?controller=admin&action=add">Add New News</a>
+    <a href="index.php?controller=news&action=add">Add New News</a>
+
     <table>
         <thead>
             <tr>
@@ -27,10 +28,9 @@
                     <td><?php echo $item['content']; ?></td>
                     <td><?php echo $item['category_id']; ?></td>
                     <td><?php echo $item['created_at']; ?></td>
-                    \>
                     <td>
-                        <a href="index.php?controller=admin&action=edit&id=<?php echo $item['id']; ?>">Edit</a>
-                        <a href="index.php?controller=admin&action=delete&id=<?php echo $item['id']; ?>">Delete</a>
+                        <a href="index.php?controller=news&action=edit&id=<?php echo $item['id']; ?>">Edit</a>
+                        <a href="index.php?controller=news&action=delete&id=<?php echo $item['id']; ?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

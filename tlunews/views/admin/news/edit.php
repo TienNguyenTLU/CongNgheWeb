@@ -1,5 +1,5 @@
 <h1>Sửa tin tức</h1>
-<form method="POST" action="index.php?controller=admin&action=update&id=<?php echo $news['id']; ?>">
+<form method="POST" action="index.php?controller=news&action=update&id=<?php echo $news['id']; ?>">
     <label for="title">Title:</label>
     <input type="text" name="title" value="<?php echo $news['title']; ?>" required><br>
 
