@@ -37,14 +37,42 @@
                     <th>Tiêu đề</th>
                     <th>Nội dung</th>
                     <th>Hình ảnh</th>
-                    <th>Category</th>
+                    <th>Category_id</th>
                     <th>Ngày tạo</th>
-                   
-                </tr>
+                    </tr>
+                    <?php $i = 1 + ($page - 1) * $limit; ?>
+                    <?php foreach ($news as $item): ?>
+                    <tr>
+                    <td><?php echo $i  ?></td>
+                    <td><?php echo htmlspecialchars($item['title']); ?></td>
+                    <td><?php echo htmlspecialchars($item['content']); ?></td>
+                    <td><?php echo htmlspecialchars($item['images']); ?></td>
+                    <td><?php echo htmlspecialchars($item['category_id']); ?></td>
+                    <td><?php echo htmlspecialchars($item['created_at']); ?></td>
+                    <td><a href="#"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="index.php?controller=news&action=edit&id=<?php echo $item['id']; ?>"><i class="bi bi-eye"></i></a></td>
+                    <td><a href="index.php?controller=news&action=delete&id=<?php echo $item['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');"> <i class="bi bi-trash"></i> </a>
+                    </tr>  
+                    <?php $i++; ?>      
+                    <?php endforeach; ?>
             </thead>
 
         </table>
-        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
+                    <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=" . ($page - 1); } ?>">Trước</a>
+                </li>
+                <?php for($i = 1; $i <= $total_pages; $i++): ?>
+                    <li class="page-item <?php if($page == $i) { echo 'active'; } ?>">
+                        <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
+                    </li>
+                <?php endfor; ?>
+                <li class="page-item <?php if($page >= $total_pages) { echo 'disabled'; } ?>">
+                    <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=" . ($page + 1); } ?>">Sau</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

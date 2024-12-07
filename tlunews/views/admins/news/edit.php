@@ -34,36 +34,49 @@
 <!--     -->
 <ul class="nav nav-tabs justify-content-center align-items-center">
 
-<body>
-    <div class="container">
-        <h1 class="text-primary text-center">Cập nhật thông tin hoa</h1>
-        
-        <!-- Form cập nhật thông tin -->
-        <form action="update_flower.php?id=<?php echo $flower['id']; ?>" method="post" enctype="multipart/form-data">
+<form method="POST" action="index.php?controller=news&action=update&id=<?php echo $news['id']; ?>">
             <input type="hidden" name="id" value="<?php echo $flower['id']; ?>">
 
             <div class="mb-3">
-                <label for="inputTitle" class="form-label">Tiêu đề</label>
-                <input type="text" name="tenhoa" id="inputTitle" class="form-control" value="<?php echo $flower['tenhoa']; ?>" required>
+                <label for="inputTitle" class="form-label">Tên hoa</label>
+                <input type="text" name="title" id="title" class="form-control" value="<?php echo $news['title']; ?>" required>
             </div>
 
             <div class="mb-3">
-                <label for="inputContent" class="form-label">Nội dung</label>
-                <textarea name="mota" id="inputContent" class="form-control" required><?php echo $flower['mota']; ?></textarea>
+                <label for="inputContent" class="form-label">Mô tả</label>
+                <textarea name="content" id="content" class="form-control" required><?php echo $news['content']; ?></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="formFile" class="form-label">Hình ảnh</label>
-                <input class="form-control" type="file" name="hinhanh" id="formFile">
+                <input class="form-control" type="file" name="image" id="image">
                 <small class="form-text text-muted">Nếu không muốn thay đổi hình ảnh, để trống trường này.</small>
+            </div>
+
+            <div class="mb-3">
+            <label for="category_id">Category:</label>
+            <select name="category_id" required>
+            <?php foreach ($categories as $category): ?>
+            <option value="<?php echo $category['id']; ?>" 
+                    <?php echo $news['category_id'] == $category['id'] ? 'selected' : ''; ?>>
+                <?php echo $category['id']; ?>
+                </option>
+            <?php endforeach; ?><br>
+            </select>
+            </div>
+            <div class="mb-3">
+                <label for="inputTitle" class="form-label">Tên hoa</label>
+                <input type="text" name="created_at" id="created_at" class="form-control" value="<?php echo $news['created_at']; ?>" required>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-primary btn-custom" type="submit">Cập nhật</button>
-                <a href="admin.php" class="btn btn-secondary btn-custom" id="cancel">Hủy bỏ</a>
+                <a href="/CongNgheWeb/tlunews/views/admins/news/index.php" class="btn btn-secondary btn-custom" id="cancel">Hủy bỏ</a>
             </div>
+         
+
         </form>
-    </div>
+<body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>

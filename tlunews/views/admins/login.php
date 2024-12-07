@@ -16,21 +16,20 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+      <form method="POST" action="index.php?controller=admin&action=login">
           <!-- Email input -->
           <h1>Đăng nhập</h1>
           <div data-mdb-input-init class="form-outline mb-4">
           <label class="form-label" for="form3Example3">Tài khoản</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Nhập tài khoản tại đây" />
+          <input type="text" name="username" id="username" required>
             
           </div>
 
           <!-- Password input -->
           <div data-mdb-input-init class="form-outline mb-3">
           <label class="form-label" for="form3Example4">Mật khẩu</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Nhập mật khẩu tại đây" />
+          <input type="password" name="password" id="password" required>
+    
            
           </div>
 
