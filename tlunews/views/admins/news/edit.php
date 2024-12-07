@@ -54,7 +54,7 @@
             </div>
 
             <div class="mb-3">
-            <label for="category_id">Category:</label>
+            <label for="category_id">Phân loại:</label>
             <select name="category_id" required>
             <?php foreach ($categories as $category): ?>
             <option value="<?php echo $category['id']; ?>" 

@@ -21,14 +21,16 @@
           <h1>Đăng nhập</h1>
           <div data-mdb-input-init class="form-outline mb-4">
           <label class="form-label" for="form3Example3">Tài khoản</label>
-          <input type="text" name="username" id="username" required>
+          <input type="text" name="username" id="username" required class="form-control form-control-lg"
+          placeholder="Nhập tài khoản" />
             
           </div>
 
           <!-- Password input -->
           <div data-mdb-input-init class="form-outline mb-3">
           <label class="form-label" for="form3Example4">Mật khẩu</label>
-          <input type="password" name="password" id="password" required>
+          <input type="password" name="password" id="password" required class="form-control form-control-lg"
+          placeholder="Nhập mật khẩu" />
     
            
           </div>
@@ -36,7 +38,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
               <label class="form-check-label" for="form2Example3">
                 Nhớ mật khẩu
               </label>

@@ -43,7 +43,7 @@
                 <input type="text" name="image" placeholder="Ảnh tin tức" required></br>
             </div>
                 <div class="mb-3">
-                <label for="category_id">Category:</label>
+                <label for="category_id">phân loại:</label>
                 <select name="category_id" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
