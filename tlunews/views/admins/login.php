@@ -48,8 +48,6 @@
           <div class="text-center text-lg-start mt-4 pt-2">
             <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Nếu bạn không có tài khoản bấm vào đây <a href="#!"
-                class="link-danger">Đăng ký</a></p>
           </div>
 
         </form>

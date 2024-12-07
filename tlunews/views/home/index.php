@@ -12,7 +12,9 @@
 <ul class="nav justify-content-center">
 <div class="position-absolute top-0 start-0 p-2">
         <div class="d-flex align-items-start">
+          
         <button type="button" class="btn btn-light"><i class="bi bi-search"></i></button>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         
         </div>
 </div>
@@ -122,14 +124,16 @@
     </ul>
   </li>
 </ul>
-<div class="container mt-5">
+<div class ="container p-5"><div class="container mt-4" style="">
 <div class="row d-flex justify-content-center mb-4">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">This is a wider card with dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsupporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
   </div>
+  
+</div>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
