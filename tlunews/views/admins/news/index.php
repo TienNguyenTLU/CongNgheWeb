@@ -49,7 +49,6 @@
                     <td><?php echo htmlspecialchars($item['images']); ?></td>
                     <td><?php echo htmlspecialchars($item['category_id']); ?></td>
                     <td><?php echo htmlspecialchars($item['created_at']); ?></td>
-                    <td><a href="#"><i class="bi bi-pencil"></i></a></td>
                     <td><a href="index.php?controller=news&action=detail&id=<?php echo $item['id']; ?>"><i class="bi bi-eye"></i></a></td>
                     <td><a href="index.php?controller=news&action=edit&id=<?php echo $item['id']; ?>"><i class="bi bi-pencil"></i></a></td>
                     <td><a href="index.php?controller=news&action=delete&id=<?php echo $item['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');"> <i class="bi bi-trash"></i> </a>

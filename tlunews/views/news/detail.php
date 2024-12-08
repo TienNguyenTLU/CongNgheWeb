@@ -20,24 +20,47 @@
 </div>
 <div class="position-absolute top-0 end-0 p-2">
         <div class="d-flex align-items-end">
-        <a class="btn btn-primary" href="/CongNgheWeb/tlunews/views/admins/login.php" role="logout">Đăng xuất</a>
+        <a class="btn btn-primary" href="index.php?controller=admin&action=logout" role="logout">Đăng xuất</a>
         </div>
 </nav>
 </ul>
+<h1 class = "text-center display-1">Báo vui lên</h1>
 <ul class="nav nav-tabs justify-content-center align-items-center">
 
 <div class="container my-5">
         <h1 class="text-center text-primary">Quản lý các bài viết</h1>
-        <div class="container">>
-        
+        <a href="index.php?controller=news&action=add" class="btn btn-success">Thêm bài viết mới</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tiêu đề</th>
+                    <th>Nội dung</th>
+                    <th>Hình ảnh</th>  
+                    <th>Phân loại</th>
+                    <th>Ngày tạo</th>
+                    </tr>
+
+                    <?php
+                    $i = 1;
+                     foreach ($news as $item): ?>
+                    <tr>
                     <td><?php echo $i  ?></td>
-                    <div><strong>Tiêu đề:</strong> <?php echo $item['title']; ?></div>
-                    <div><strong><img src="<?= $item['image'] ?>" alt="<?= $item['image'] ?>" style="width: 800; height: 600 ;display: block; margin-left: auto; margin-right: auto;"></strong></div>
-                    <div><strong>Nội dung:</strong> <?php echo $item['content']; ?></div>
-                    <div><strong>Phân loại:</strong> <?php echo $item['category_id']; ?></div>
-                    <a href="index.php?controller=admin&action=index"> <button type="back" class="btn btn-primary">Quay lại</button></a>
-          
-        </div>
+                    <td><?php echo htmlspecialchars($item['title']); ?></td>
+                    <td><?php echo htmlspecialchars($item['content']); ?></td>
+                    <td><?php echo htmlspecialchars($item['image']); ?></td>
+                    <td><?php echo htmlspecialchars($item['category_id']); ?></td>
+                    <td><?php echo htmlspecialchars($item['created_at']); ?></td>
+                    <td><a href="#"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="index.php?controller=news&action=detail&id=<?php echo $item['id']; ?>"><i class="bi bi-eye"></i></a></td>
+                    <td><a href="index.php?controller=news&action=edit&id=<?php echo $item['id']; ?>"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="index.php?controller=news&action=delete&id=<?php echo $item['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');"> <i class="bi bi-trash"></i> </a>
+                    </tr>  
+                    <?php $i++; ?>      
+                    <?php endforeach; ?>
+            </thead>
+
+        </table>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
@@ -48,5 +71,3 @@
 
 
 </html>
-
-

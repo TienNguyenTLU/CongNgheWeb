@@ -10,14 +10,7 @@
 </head>
 <body class="contrainer mt-4">
 <ul class="nav justify-content-center">
-<div class="position-absolute top-0 start-0 p-2">
-        <div class="d-flex align-items-start">
-          
-        <button type="button" class="btn btn-light"><i class="bi bi-search"></i></button>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        
-        </div>
-</div>
+
 <div class="btn-group justify-content-center align-items-center" role="group" aria-label="Basic example">
   <button type="button" class="btn btn-light">U.S</button>
   <button type="button" class="btn btn-light">INTERNATIONAL</button>
@@ -31,7 +24,6 @@
         </div>
 </nav>
 </ul>
-<!--     -->
 <ul class="nav nav-tabs justify-content-center align-items-center">
 
 <form method="POST" action="index.php?controller=news&action=update&id=<?php echo $news['id']; ?>">
