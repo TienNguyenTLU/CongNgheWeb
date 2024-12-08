@@ -25,10 +25,12 @@
                             <input type="password" name="password" id="password" class="form-control" placeholder="Nhập mật khẩu" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                        <a href="/CongNgheWeb/tlunews/views/home/index.php" class="btn btn-secondary w-100 mt-2">Quay lại trang chủ</a>
                     </form>
+
                     <?php
                     if (isset($error)) {
-                        echo "<p class='text-danger text-center mt-3'>$error</p>";
+                        echo "<p class='text-danger text-center mt-3'>" . htmlspecialchars($error) . "</p>";
                     }
                     ?>
                 </div>
@@ -36,6 +38,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

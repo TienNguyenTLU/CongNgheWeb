@@ -60,7 +60,7 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <h5 class="card-title"><?php echo $article['title']; ?></h5>
                                 <p class="card-text"><?php echo $article['content']; ?></p>
                                 <!-- Thêm link dẫn đến chi tiết bài viết -->
-                                <a href="index.php?controller=home&action=detail&id=<?php echo $article['id']; ?>" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="index.php?controller=news&action=detail&id=<?php echo $article['id']; ?>" class="btn btn-primary">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>

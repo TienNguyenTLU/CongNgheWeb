@@ -18,8 +18,7 @@
             } else {
                 return false;
             }
-        }
-        
+        } 
 
         public function logout(){
             session_start();

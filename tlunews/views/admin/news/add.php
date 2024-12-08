@@ -1,82 +1,85 @@
 <!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Thêm Tin Tức Mới</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    
-
 </head>
-<body class="contrainer mt-4">
-<ul class="nav justify-content-center">
-<div class="btn-group justify-content-center align-items-center" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-light">U.S</button>
-  <button type="button" class="btn btn-light">INTERNATIONAL</button>
-  <button type="button" class="btn btn-light">CANADA</button>
-  <button type="button" class="btn btn-light">ESPANOL</button>
-  <button type="button" class="btn btn-light">中文</button>
-</div>
-<div class="position-absolute top-0 end-0 p-2">
-        <div class="d-flex align-items-end">
-        <a class="btn btn-primary" href="/CongNgheWeb/tlunews/views/admins/login.php" role="logout">Đăng xuất</a>
-        </div>
-</nav>
-</ul>
-<h1 class = "text-center display-1">Báo vui lên</h1>
-<ul class="nav nav-tabs justify-content-center align-items-center">
-<div class="container">
-        <h1 class="text-primary text-center">Thêm bài viết mới</h1>
-        
+<body class="container mt-5">
  
-        <form method="POST" action="index.php?controller=news&action=store">
-            <bclass="mb-3">
-                <label for="inputTitle" class="form-label">Bài viết</label>
-                <input type="text" name="tiltle" placeholder="Tiêu đề" required></br>
-            </div>
-            <div class="mb-3">
-                <label for="inputContent" class="form-label">Nội dung</label>
-                <textarea name="content" id="content" class="form-control" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Hình ảnh</label>
-                <input type="text" name="image" placeholder="Ảnh tin tức" required></br>
-            </div>
-                <div class="mb-3">
-                <label for="category_id">phân loại:</label>
-                <select name="category_id" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                </select><br>
-            </div>
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Ngày tạo</label>
-                <input type="date" name="inputCreated_at" placeholder="Ngày tạo" required></br>
-         
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        
-                <button class="btn btn-primary btn-custom" type="submit">Thêm</button>
-        
-                <a href="/CongNgheWeb/tlunews/views/admins/news/index.php" class="btn btn-secondary btn-custom" id="cancel">Hủy bỏ</a>
-            </div>
-        </form>
+    <h2 class="text-center text-primary mb-4">Thêm Tin Tức Mới</h2>
 
-    </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <form method="POST" action="index.php?controller=news&action=store" enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Tiêu đề</label>
+            <input type="text" name="title" id="title" class="form-control <?= isset($errors['title']) ? 'is-invalid' : '' ?>" value="<?= $title ?? '' ?>" required>
+            <?php if (isset($errors['title'])): ?>
+                <div class="invalid-feedback"><?= $errors['title'] ?></div>
+            <?php endif; ?>
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">Nội dung</label>
+            <textarea name="content" id="content" class="form-control <?= isset($errors['content']) ? 'is-invalid' : '' ?>" required><?= $content ?? '' ?></textarea>
+            <?php if (isset($errors['content'])): ?>
+                <div class="invalid-feedback"><?= $errors['content'] ?></div>
+            <?php endif; ?>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Hình ảnh</label>
+            <input type="file" name="image" id="image" class="form-control <?= isset($errors['image']) ? 'is-invalid' : '' ?>" required>
+            <?php if (isset($errors['image'])): ?>
+                <div class="invalid-feedback"><?= $errors['image'] ?></div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Category Field -->
+        <div class="mb-3">
+            <label for="category_id" class="form-label">Phân loại</label>
+            <select name="category_id" id="category_id" class="form-select <?= isset($errors['category_id']) ? 'is-invalid' : '' ?>" required>
+                <?php 
+                $categories = [
+                    '1' => 'Chính trị',
+                    '2' => 'Kinh tế',
+                    '3' => 'Văn hóa',
+                    '4' => 'Khoa học',
+                    '5' => 'Giải trí',
+                    '6' => 'Thể thao',
+                    '7' => 'Giáo dục',
+                    '8' => 'Sức khỏe',
+                    '9' => 'Công nghệ',
+                    '10' => 'Môi trường'
+                ];
+                ?>
+                <?php foreach ($categories as $id => $name): ?>
+                    <option value="<?= $id ?>" <?= ($category_id ?? '') == $id ? 'selected' : '' ?>><?= $name ?></option>
+                <?php endforeach; ?>
+            </select>
+            <?php if (isset($errors['category_id'])): ?>
+                <div class="invalid-feedback"><?= $errors['category_id'] ?></div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Created At Field -->
+        <div class="mb-3">
+            <label for="created_at" class="form-label">Ngày tạo</label>
+            <input type="date" name="created_at" id="created_at" class="form-control <?= isset($errors['created_at']) ? 'is-invalid' : '' ?>" value="<?= $created_at ?? '' ?>" required>
+            <?php if (isset($errors['created_at'])): ?>
+                <div class="invalid-feedback"><?= $errors['created_at'] ?></div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Submit and Cancel Buttons -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-primary">Thêm</button>
+            <a href="index.php?controller=admin&action=index" class="btn btn-secondary">Hủy bỏ</a>
+        </div>
+    </form>
 </body>
-
-
-
-
-
-</html> 
+</html>
