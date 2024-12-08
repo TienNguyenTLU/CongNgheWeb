@@ -9,8 +9,12 @@
 </head>
 <body class="container mt-5">
     
-
-    <h2 class="text-center mb-4">Cập nhật bài viết</h2>
+<nav class="nav justify-content-center">
+        <div class="position-absolute top-0 end-0 p-2">
+            <a class="btn btn-primary" href="index.php?controller=admin&action=logout" role="logout">Đăng xuất</a>
+        </div>
+    </nav>
+<h1 class="text-center text-primary">Quản lý các bài viết</h1>
 
     <form method="POST" action="index.php?controller=news&action=update&id=<?php echo $news['id']; ?>" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $news['id']; ?>">
@@ -55,7 +59,7 @@
        
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-primary" type="submit">Cập nhật</button>
-            <a href="/CongNgheWeb/tlunews/views/admins/news/index.php" class="btn btn-secondary">Hủy bỏ</a>
+            <a href="index.php?controller=news&action=index" class="btn btn-secondary">Hủy bỏ</a>
         </div>
     </form>
 

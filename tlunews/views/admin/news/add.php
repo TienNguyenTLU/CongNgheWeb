@@ -39,7 +39,7 @@
             <?php endif; ?>
         </div>
 
-        <!-- Category Field -->
+  
         <div class="mb-3">
             <label for="category_id" class="form-label">Phân loại</label>
             <select name="category_id" id="category_id" class="form-select <?= isset($errors['category_id']) ? 'is-invalid' : '' ?>" required>
@@ -66,7 +66,6 @@
             <?php endif; ?>
         </div>
 
-        <!-- Created At Field -->
         <div class="mb-3">
             <label for="created_at" class="form-label">Ngày tạo</label>
             <input type="date" name="created_at" id="created_at" class="form-control <?= isset($errors['created_at']) ? 'is-invalid' : '' ?>" value="<?= $created_at ?? '' ?>" required>
@@ -75,7 +74,7 @@
             <?php endif; ?>
         </div>
 
-        <!-- Submit and Cancel Buttons -->
+
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="submit" class="btn btn-primary">Thêm</button>
             <a href="index.php?controller=admin&action=index" class="btn btn-secondary">Hủy bỏ</a>

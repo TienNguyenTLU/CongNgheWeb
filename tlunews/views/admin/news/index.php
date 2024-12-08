@@ -9,24 +9,13 @@
 </head>
 <body class="container mt-4">
 
-    <!-- Navigation Bar -->
     <nav class="nav justify-content-center">
-        <div class="btn-group" role="group" aria-label="Language Options">
-            <button type="button" class="btn btn-light">U.S</button>
-            <button type="button" class="btn btn-light">INTERNATIONAL</button>
-            <button type="button" class="btn btn-light">CANADA</button>
-            <button type="button" class="btn btn-light">ESPANOL</button>
-            <button type="button" class="btn btn-light">中文</button>
-        </div>
         <div class="position-absolute top-0 end-0 p-2">
             <a class="btn btn-primary" href="index.php?controller=admin&action=logout" role="logout">Đăng xuất</a>
         </div>
     </nav>
 
-    <!-- Header -->
-    <h1 class="text-center display-1 text-primary my-4">Báo vui lên</h1>
 
-    <!-- Manage News Section -->
     <div class="container my-5">
         <h1 class="text-center text-primary">Quản lý các bài viết</h1>
         <a href="index.php?controller=news&action=add" class="btn btn-success mb-3">Thêm bài viết mới</a>
@@ -59,22 +48,16 @@
                     <td><?php echo $item['category_name']; ?></td>
                     <td><?php echo $item['created_at']; ?></td>
                     <td>
-                        <a href="index.php?controller=news&action=detail&id=<?php echo $item['id']; ?>" class="btn btn-info btn-sm">
-                            <i class="bi bi-eye"></i> Xem
-                        </a>
-                        <a href="index.php?controller=news&action=edit&id=<?php echo $item['id']; ?>" class="btn btn-warning btn-sm">
-                            <i class="bi bi-pencil"></i> Sửa
-                        </a>
-                        <a href="index.php?controller=news&action=delete&id=<?php echo $item['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');">
-                            <i class="bi bi-trash"></i> Xóa
-                        </a>
+                    <td><a href="index.php?controller=news&action=detail&id=<?php echo $item['id']; ?>"><i class="bi bi-eye"></i></a></td>
+                    <td><a href="index.php?controller=news&action=edit&id=<?php echo $item['id']; ?>"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="index.php?controller=news&action=delete&id=<?php echo $item['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');"> <i class="bi bi-trash"></i> </a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
 
-        <!-- Pagination -->
+
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item <?php echo $currentPage == 1 ? 'disabled' : ''; ?>">
@@ -92,7 +75,6 @@
         </nav>
     </div>
 
-    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>

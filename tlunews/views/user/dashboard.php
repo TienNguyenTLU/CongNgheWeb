@@ -36,8 +36,13 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<nav class="nav justify-content-center">
+        <div class="position-absolute top-0 end-0 p-2">
+            <a class="btn btn-primary" href="index.php?controller=admin&action=logout" role="logout">Đăng xuất</a>
+        </div>
+    </nav>
     <div class="container my-4">
-        <h1 class="text-center mb-4">Danh sách bài viết</h1>
+    <h1 class="text-center text-primary">Danh sách bài viết</h1>
         
         <!-- Form tìm kiếm -->
         <form action="" method="GET" class="mb-4">
