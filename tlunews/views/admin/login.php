@@ -25,7 +25,7 @@
                             <input type="password" name="password" id="password" class="form-control" placeholder="Nhập mật khẩu" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
-                        <a href="/CongNgheWeb/tlunews/views/home/index.php" class="btn btn-secondary w-100 mt-2">Quay lại trang chủ</a>
+               
                     </form>
 
                     <?php
