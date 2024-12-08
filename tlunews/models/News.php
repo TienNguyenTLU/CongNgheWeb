@@ -18,7 +18,26 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         
+        public function getNewsWithPagination($offset, $limit) {
+            $sql = "SELECT news.*, categories.name AS category_name 
+                    FROM news 
+                    JOIN categories ON news.category_id = categories.id
+                    ORDER BY news.created_at DESC 
+                    LIMIT :offset, :limit";
+            $stmt = $this->db->getCon()->prepare($sql);
+            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+            $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
         
+        public function getTotalNews() {
+            $sql = "SELECT COUNT(*) FROM news";
+            $stmt = $this->db->getCon()->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchColumn();
+        }        
+
         public function getCategories() {
             $sql = "SELECT * FROM categories";
             $stmt = $this->db->getCon()->prepare($sql);
