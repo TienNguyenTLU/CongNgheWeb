@@ -45,13 +45,16 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }        
 
-        public function getByID($id){
-            $sql = "SELECT * FROM news WHERE id = :id";
+        public function getByID($id) {
+            $sql = "SELECT n.*, c.name AS category_name FROM news n
+                    JOIN categories c ON n.category_id = c.id
+                    WHERE n.id = :id";
             $stmt = $this->db->getCon()->prepare($sql);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
+        
 
         public function add($title, $content, $image, $category_id, $created_at) {
             $sql = "INSERT INTO news (title, content, image, created_at, category_id) 

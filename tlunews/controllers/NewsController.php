@@ -159,9 +159,7 @@
                 $categories = $this->newsModel->getCategories();
                 require_once 'views/admin/news/edit.php';
             }
-        }
-        
-         
+        } 
         
         public function delete($id) {
             $news = $this->newsModel->getByID($id);
@@ -173,5 +171,18 @@
             $_SESSION['message'] = 'Deleted successfully!';
             header('Location: index.php?controller=admin&action=index');
         }
+
+        public function detail($id) {
+            $news = $this->newsModel->getByID($id);
+        
+            if ($news) {
+                require_once 'views/news/detail.php';
+            } else {
+                $_SESSION['message'] = 'News not found!';
+                header('Location: index.php?controller=news&action=index');
+                exit;
+            }
+        }
+        
     }
 ?>
